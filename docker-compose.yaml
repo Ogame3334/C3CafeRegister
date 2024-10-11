@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  c3cafe:
+    image: node:18
+    command: /root/product/execute.sh
+    container_name: c3cafe
+    volumes:
+      - .:/root/product
+    ports:
+      - "49200:3000"
