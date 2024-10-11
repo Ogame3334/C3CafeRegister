@@ -52,11 +52,11 @@ const Home = () => {
             <main>
                 <div className="fixed top-0 bg-gray-100 h-12 outline outline-1 w-full flex justify-between items-center">
                 <button 
-                        className="px-3 py-1 m-3 bg-green-100 rounded-lg outline outline-1 outline-gray-500"
+                        className="px-3 py-1 m-3 bg-green-100 active:bg-green-300 rounded-lg outline outline-1 outline-gray-500"
                         onClick={()=>{router.push("/")}}
                     >戻る</button>
                 <button 
-                        className="px-3 py-1 m-3 bg-green-100 rounded-lg outline outline-1 outline-gray-500"
+                        className="px-3 py-1 m-3 bg-green-100 active:bg-green-300 rounded-lg outline outline-1 outline-gray-500"
                         onClick={()=>{
                             setMessage(JSON.stringify({method: "RequireItems", content: {}} as SocketSchema));
                         }}
@@ -68,7 +68,7 @@ const Home = () => {
                         <div className="text-3xl">{elem.slipId}</div>
                         <div>{elem.itemInfo.name} {elem.itemInfo.kind}</div>
                         <button 
-                            className="p-2 bg-white outline outline-1 rounded-md"
+                            className="p-2 bg-white active:bg-gray-200 outline outline-1 rounded-md"
                             onClick={()=>{
                                 setMessage(JSON.stringify({method: "Done", content: {id: elem.id}} as SocketSchema))
                             }}

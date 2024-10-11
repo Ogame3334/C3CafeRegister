@@ -4,7 +4,7 @@ const ItemButton = ({ itemInfo, onClickHandler }: { itemInfo: ItemInfo, onClickH
     return (
         <div className="p-3 w-full">
             <button
-                className={`p-5 rounded-xl outline outline-2 w-full outline-black bg-white`}
+                className={`p-5 rounded-xl outline outline-2 w-full outline-black bg-white active:bg-gray-200`}
                 // className={`p-5 rounded-xl outline outline-2 w-full outline-black ${itemInfo.bg_color}`}
                 onClick={onClickHandler}
             >

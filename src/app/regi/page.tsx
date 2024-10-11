@@ -25,7 +25,7 @@ export default function Main() {
     <div>
         <div className="fixed top-0 bg-gray-100 h-12 outline outline-1 w-full flex justify-between items-center">
             <button 
-                className="px-3 py-1 m-3 bg-green-100 rounded-lg outline outline-1 outline-gray-500"
+                className="px-3 py-1 m-3 bg-green-100 active:bg-green-300 rounded-lg outline outline-1 outline-gray-500"
                 onClick={()=>{router.push("/")}}
             >戻る</button>
         </div>
@@ -68,7 +68,7 @@ export default function Main() {
         <div className="fixed bottom-0 bg-white h-12 outline outline-1 w-full flex justify-between items-center">
             <div className="text-2xl px-10">計{total}円</div>
             <button 
-                className="p-2 m-3 bg-green-100 rounded-lg outline outline-1 outline-gray-500"
+                className="p-2 m-3 bg-green-100 active:bg-green-300 rounded-lg outline outline-1 outline-gray-500"
                 onClick={()=>{
                     if(itemList.length == 0) return;
 

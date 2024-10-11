@@ -13,7 +13,7 @@ import { PostDataSchema } from "@/class/CSVDataSchema";
 const RegiButton = ({c, onClickHandler}: {c: string, onClickHandler: () => void}) => {
     return (
         <button 
-            className="m-2 h-8 bg-white rounded-2xl outline outline-2 text-2xl flex items-center justify-center"
+            className="m-2 h-8 bg-white active:bg-gray-200 rounded-2xl outline outline-2 text-2xl flex items-center justify-center"
             onClick={onClickHandler}
         >
             {c}
@@ -109,7 +109,7 @@ export default function Main() {
       <div>
         <div className="fixed top-0 bg-gray-100 h-12 outline outline-1 w-full flex justify-between items-center">
             <button 
-                className="px-3 py-1 m-3 bg-green-100 rounded-lg outline outline-1 outline-gray-500"
+                className="px-3 py-1 m-3 bg-green-100 active:bg-green-300 rounded-lg outline outline-1 outline-gray-500"
                 onClick={()=>{router.push("/regi")}}
             >戻る</button>
         </div>
@@ -219,7 +219,7 @@ export default function Main() {
                 </div>
                 <div>
                 <button 
-                className={`w-16 h-12 px-3 py-1 m-3 rounded-lg outline outline-1 outline-gray-500 ${doneAccounting ? "bg-green-100" : "bg-gray-50"}`}
+                className={`w-16 h-12 px-3 py-1 m-3 rounded-lg outline outline-1 outline-gray-500 ${doneAccounting ? "bg-green-100" : "bg-gray-50"} ${doneAccounting ? "active:bg-green-300" : ""}`}
                 onClick={async ()=>{
                     if(!doneAccounting) return;
                     setMessage(JSON.stringify({
