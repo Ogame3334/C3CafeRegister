@@ -29,7 +29,7 @@ const writeCsv = (filePath: string, data: CSVDataSchema[]) => {
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const csvFilePath = path.join(process.cwd(), 'data', '会計.csv'); // ローカルにあるCSVファイルのパス
+    const csvFilePath = path.join(process.cwd(), 'data', 'accounts.csv'); // ローカルにあるCSVファイルのパス
 
     try {
         if (req.method === 'GET') {
