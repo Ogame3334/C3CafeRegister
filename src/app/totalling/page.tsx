@@ -17,7 +17,7 @@ export default function Main() {
 
 
 
-        setData(data.map((elem, i) => ({ name: `${elem.name} ${elem.kind}`, price: Number(elem.price), discount: Number(elem.discount), count: Number(elem.count) })));
+        setData(data.map((elem) => ({ name: `${elem.name} ${elem.kind}`, price: Number(elem.price), discount: Number(elem.discount), count: Number(elem.count) })));
     }
 
     useEffect(() => {
@@ -25,7 +25,7 @@ export default function Main() {
     }, []);
 
     useEffect(() => {
-        let tempTotalData: { name: string, count: number, total: number }[] = [];
+        const tempTotalData: { name: string, count: number, total: number }[] = [];
 
         data.forEach((elem) => {
             let isExist = false;

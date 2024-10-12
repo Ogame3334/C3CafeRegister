@@ -11,14 +11,14 @@ const socket = io({ path: "/api/socket" });
 
 const Home = () => {
     const [message, setMessage] = useState("");
-    const [items, setItems] = useState<{id: number, slipId: number, itemInfo: ItemInfo}[]>([]);
+    const [items, setItems] = useState<{id: number, slipId: number, itemInfo: ItemInfo, count: number}[]>([]);
 
     useEffect(() => {
         socket.on("message", (msg) => {
             // console.log("received message:", msg);
             const socketData = JSON.parse(msg) as SocketSchema;
             if(socketData.method === "ItemsUpdate"){
-                setItems(socketData.content as {id: number, slipId: number, itemInfo: ItemInfo}[]);
+                setItems(socketData.content as {id: number, slipId: number, itemInfo: ItemInfo, count: number}[]);
             }
         });
 
@@ -66,7 +66,10 @@ const Home = () => {
                 {items.map((elem, i) => (
                     <div key={i} className="bg-lime-100 m-3 p-3 rounded-md outline outline-1 flex justify-between">
                         <div className="text-3xl">{elem.slipId}</div>
-                        <div>{elem.itemInfo.name} {elem.itemInfo.kind}</div>
+                        <div className="flex flex-col">
+                            <div>{elem.itemInfo.name} {elem.itemInfo.kind}</div>
+                            <div>{elem.count}個</div>
+                        </div>
                         <button 
                             className="p-2 bg-white active:bg-gray-200 outline outline-1 rounded-md"
                             onClick={()=>{

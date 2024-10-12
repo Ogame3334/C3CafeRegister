@@ -14,7 +14,7 @@ type ReseponseWebSocket = NextApiResponse & {
 let id = 0;
 
 export default function handler(req: NextApiRequest, res: ReseponseWebSocket) {
-    let items: {id: number, slipId: number, itemInfo: ItemInfo}[] = [];
+    let items: {id: number, slipId: number, itemInfo: ItemInfo, count: number}[] = [];
     
     if (req.method === "GET") {
         if (!res.socket.server.io) {
@@ -33,11 +33,12 @@ export default function handler(req: NextApiRequest, res: ReseponseWebSocket) {
                     if(socketMessage.method === "Account"){
                         const content = socketMessage.content as {slipId: number, items: {itemInfo: ItemInfo, count: number}[]};
                         content.items.forEach(elem => {
-                            if(elem.itemInfo.type !== "goods"){
-                                for(let i = 0; i < elem.count; ++i){
-                                    items.push({id: id++, slipId: content.slipId, itemInfo: elem.itemInfo});
-                                }
-                            }
+                            // if(elem.itemInfo.type !== "goods"){
+                            //     for(let i = 0; i < elem.count; ++i){
+                            //         items.push({id: id++, slipId: content.slipId, itemInfo: elem.itemInfo});
+                            //     }
+                            // }
+                            items.push({id: id++, slipId: content.slipId, itemInfo: elem.itemInfo, count: elem.count})
                         })
 
                         io.emit("message", JSON.stringify({method: "ItemsUpdate", content: items} as SocketSchema))
