@@ -35,7 +35,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         if (req.method === 'GET') {
             // CSVを読み込む
             const data = await readCsv(csvFilePath);
-            res.status(200).json({ message: 'CSV読み込み成功', data } as { message: string, data: CSVDataSchema[] });
+            res.status(200).json({ data } as { data: CSVDataSchema[] });
         } else if (req.method === 'POST') {
             const data = await readCsv(csvFilePath) as CSVDataSchema[];
 

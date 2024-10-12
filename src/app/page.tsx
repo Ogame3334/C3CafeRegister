@@ -18,6 +18,11 @@ export default function Home() {
         className="m-10 p-3 bg-green-100 active:bg-green-300 rounded-full outline outline-1 text-2xl text-center">
         伝票
       </div>
+      <div 
+        onClick={()=>{router.push("/totalling")}} 
+        className="m-10 p-3 bg-green-100 active:bg-green-300 rounded-full outline outline-1 text-2xl text-center">
+        集計
+      </div>
     </main>
   );
 }
